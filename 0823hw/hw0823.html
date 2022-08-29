@@ -1,0 +1,180 @@
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>0823HW</title>
+	<link rel="stylesheet" href="css/0823hw.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+
+	<style>
+		
+		#menu{
+			width: 100%;
+			height: 50px;
+			background-color: #4AA7E0;
+		}
+
+		#menulist{
+			position: absolute; /*position 定位 fix: 固定 absolute : 依照位置去做搭配*/
+			height: 100px;
+		}
+
+		#menulist , #menulist ul{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		#menulist li{
+			height: 50px;
+			border-right: 1px solid #ffffff;
+			float: left;
+			background-color: #4AA7E0;
+			line-height: 50px;
+		}
+
+		#menulist a{
+			font-size: 20px;
+			text-align: center;
+			height: 50px;
+			color: #ffffff;
+			display: block;
+			text-decoration: none;
+			width: 380px;
+		}
+
+		#menulist li ul{
+			position: absolute; /*位置是絕對位置*/
+			left: auto; /*對於絕對位置元素，會依內容需要的寬度來調整*/
+			width: 200px;
+		}
+
+		.active{
+			background-color: #45CBF7;
+		}
+
+	</style>
+
+	<script>
+		
+		$(document).ready(function(){
+
+			$('#menulist li ul').hide();
+			$('#menulist li').hover(
+
+				function(){
+					$(this).find("ul").slideDown("fast");
+					$(this).find("a:first").addClass("active");
+				},function(){
+					$(this).find(".submenu").fadeOut("fast");
+					$(this).find("a").removeClass("active");
+				}
+
+			)
+
+			$('#ca_con').hide()
+
+			$('#catalog').click(function(){
+
+				$('#ca_con').slideToggle();
+			})
+
+		});
+
+
+	</script>
+	<script>
+		function showAge() {
+
+			var age = document.getElementById('age').value;
+			
+			if (age < 15 || age>50){
+				alert("超過了")
+			}
+
+		}
+
+	</script>
+</head>
+<body>
+
+	<div id="banner"  style="height: 60px;width: 100%;">
+		
+	</div>
+
+
+	<div id="menu">
+		<ul id="menulist">
+
+			<li><a href="#">動物</a>
+				<ul class="submenu">
+					<li><a href="#">貓貓</a></li>
+					<li><a href="#">狗狗</a></li>
+					<li><a href="#">兔兔</a></li>
+				</ul>
+			</li>
+
+			<li><a href="#">植物</a>
+				<ul class="submenu">
+					<li><a href="#">單子葉</a></li>
+					<li><a href="#">雙子葉</a></li>
+					<li><a href="#">蕨類</a></li>
+				</ul>
+			</li>
+
+			<li><a href="#">細菌</a>
+				<ul class="submenu">
+					<li><a href="#">大腸桿菌</a></li>
+					<li><a href="#">葡萄球菌</a></li>
+					<li><a href="#">螺旋桿菌</a></li>
+				</ul>
+			</li>
+
+			<li><a href="#">病毒</a>
+				<ul class="submenu">
+					<li><a href="#">武漢病毒</a></li>
+					<li><a href="#">腸病毒</a></li>
+					<li><a href="#">菸草病毒</a></li>
+				</ul>
+			</li>
+
+			<li><a href="#">聯絡我們</a></li>
+
+
+		</ul>
+	</div>
+
+	<div id="content" style="width: 100%;min-height: 300px;">
+		<div id="pic">
+			<img src="img/coala.jpg">
+		</div>
+		
+	</div>
+
+	<div id="extend" style="width: 100%;min-height: 200px;">
+		<div id="catalog">
+			<h2>查看更多</h2>
+		</div>
+		<div id="ca_con">
+
+		很高興你到達了77樓了大哥哥，接下來就由我鎖鏈的康尼來對付你!
+	
+		</div>
+		
+	</div>
+
+	<div id="age_area">
+
+		年齡:
+		<input type="text" id="age" name="age" />
+		<button onclick="showAge()">送出</button>
+		
+	</div>
+
+
+
+
+
+</body>
+</html>
