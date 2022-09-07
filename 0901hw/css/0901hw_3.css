@@ -1,0 +1,82 @@
+#program2{
+	min-height: 800px;
+	width: 100%;
+}
+
+#program2 p{
+	text-align: center;
+	font-size: 50px;
+	color: #0C3670;
+	text-decoration: underline;
+}
+
+#program2 .items{
+
+	height: 150px;
+	width: 80%;
+	margin-left: 10%;
+	box-shadow: 0 1px;
+}
+
+.programLogo{
+
+	float: left;
+	height: 100px;
+	width: 400px;
+}
+
+.programLogo img{
+	height: 100%;
+	width: 100%;
+}
+
+.pg2content{
+	height: 300px;
+	width: 100%;
+}
+
+#pg2left{
+	float: left;
+	margin-left: 50px;
+	margin-top: 50px;
+	height: 500px;
+	width: 750px;
+}
+
+#pg2left img{
+	height: 100%;
+	width: 100%;
+}
+
+#pg2lefttext{
+	z-index: 9999;
+	background-color: #E3FEFF;
+	text-decoration: none;
+	font-size: 25px;
+	height: 100px;
+	width: 300px;
+	margin-left: 200px;
+	position: absolute;
+	margin-top: 350px;
+
+}
+
+#pg2right{
+	float: right;
+	margin-right: 100px;
+	margin-top: 50px;
+
+}
+
+.pg2rightpiece{
+	margin-right: 20px;
+	float: left;
+	height: 200px;
+	width: 300px;
+	font-size: 20px;
+}
+
+.pg2rightpiece img{
+	height: 100%;
+	width: 100%;
+}

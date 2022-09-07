@@ -1,0 +1,285 @@
+#pic{
+	margin-left: 700px;
+	margin-top: 80px;
+	height: 400px;
+	width: 500px;
+}
+
+#pic img{
+
+	width: 100%;
+}
+
+
+#catalog{
+
+	height: 60px;
+	width: 100%;
+	background-color: #173DF5;
+}
+
+#catalog h2{
+	padding-top: 10px;
+	text-align: center;
+	font-size: 25px;
+	color: #ffffff;
+}
+
+#ca_con {
+
+	height: 100px;
+	font-size: 25px;
+	width: 100%;
+	background-color: #ECC2F5;
+	text-align: center;
+	padding-top: 40px;
+
+}
+
+#icon{
+	float: left;
+	height: 100px;
+	width: 600px;
+	padding-top: 20px;
+}
+
+#icon img{
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+}
+
+
+#searchArea{
+
+	margin-bottom: 50px;
+	height: 150px;
+	width: 400px;
+	float: right;
+	position: relative;
+}
+
+#searchArea input{
+	float: left;
+	width: 200px;
+	height: 50px;
+	font-size: 25px;
+	margin-top: 50px;
+	border-radius: 30px;
+
+}
+
+#searchArea img{
+	float: right;
+	width: 75px;
+	height: 75px;
+	margin-right: 75px;
+	margin-top: 35px;
+	cursor: pointer;
+
+}
+
+.mover{
+
+	float: left;
+	margin-top: 100px;
+	margin-left: 400PX;
+	width: 500px;
+	height: 500px;
+	position: relative; /*定位的屬性*/
+	overflow: hidden; /*超過了就隱藏*/
+
+}
+
+.mover .img{
+	width: 5000px;
+	position: absolute;
+
+}
+
+.mover .img img{
+	width: 500px;
+	height: 500px;
+	/*圖片的寬高要跟banner一樣*/
+}
+
+.mover .img li{
+	float: left;
+}
+
+.mover .btn{
+	width: 30px;
+	height: 50px;
+	background-color: #ccc;
+
+	/*透明度寫法*/
+	opacity: 0.5;
+	filter: alpha(opacity: 0.5);
+	position: absolute;
+	top: 50%;
+	margin-top: -25px;
+
+	/*字體顏色*/
+	cursor: pointer; /* corsor 是用來改變滑鼠游標的形狀 */
+	text-align: center;
+	line-height: 50px;
+	font-size: 50px;
+	color: #fff;
+	display: none;
+}
+
+.mover .left{
+	left: 0px;
+}
+
+.mover .right{
+	right: 0px;
+}
+
+.mover:hover .btn{
+	display: block;
+}
+
+#content{
+	background-color: black;
+	min-height: 700px;
+	width: 100%;
+}
+
+#contentRightpart{
+	float: right;
+	height: 600px;
+	width: 400px;
+	margin-right: 300px;
+}
+
+.rightPiece{
+	float: left;
+	margin-top: 40px;
+	height: 180px;
+	width: 300px;
+	cursor: pointer;
+}
+
+.rightPiece img{
+	height: 100%;
+	width: 100%;
+}
+
+.rightPiece h2{
+	padding-top: 150px;
+	position: absolute;
+	color: #ffffff;
+}
+
+#news{
+	min-height: 800px;
+	width: 100%;
+	background-color: #C2F8F7;
+}
+
+#news p{
+	text-align: center;
+	font-size: 50px;
+	color: #0C3670;
+	text-decoration: underline;
+}
+
+#news .items{
+
+	height: 150px;
+	width: 80%;
+	margin-left: 10%;
+	box-shadow: 0 1px;
+}
+
+#news .items #weather{
+	float: left;
+	width: 300px;
+	height: 150px;
+}
+
+#weather p {
+
+	font-size: 30px;
+	color: #0C3670;
+	text-decoration: none;
+	line-height: 150px;
+
+}
+
+.buttons{
+	float: right;
+	margin-right: 50px;
+	margin-top: 60px;
+
+}
+
+.buttons h3{
+	float: left;
+	font-size: 30px;
+	color: #0C3670;
+	text-decoration: none;
+	margin-right: 20px;
+
+}
+
+.buttons img{
+	cursor: pointer;
+}
+
+
+#newsContent{
+	min-height: 650px;
+	width: 100%;
+}
+
+#newsContent .left{
+	float: left;
+	margin-left: 200px;
+}
+
+#newsContent .right{
+	float: right;
+	margin-right: 300px;
+}
+
+#newsContent .left .leftpiece{
+	float: left;
+	height: 300px;
+	width: 400px;
+	margin-top: 75px;
+	margin-left: 50px;
+}
+
+#newsContent .left .leftpiece img{
+	height: 100%;
+	width: 100%;
+}
+
+#newsContent .left .leftpiece h1{
+	font-size: 25px;
+	margin-top: 5px;
+}
+
+#newsContent .left .leftpiece p{
+	font-size: 20px;
+	color: #8795AD;
+	margin-top: 5px;
+	text-decoration: none;
+	text-align: left;
+}
+
+#newsContent .right .rightpiece{
+	float: none;
+	height: 50px;
+	width: 300px;
+	border-bottom:1px #000 solid;
+	padding-bottom:10px;
+}
+
+#newsContent .right .rightpiece p{
+	font-size: 20px;
+	text-decoration: none;
+	text-align: left;
+}

@@ -1,0 +1,544 @@
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>0901HW</title>
+	<link rel="stylesheet" href="css/0901hw.css">
+	<link rel="stylesheet" href="css/0901hw_2.css">
+	<link rel="stylesheet" href="css/0901hw_3.css">
+	<link rel="stylesheet" href="css/0901hw_4.css">
+	<link rel="stylesheet" href="css/0901hw_5.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+
+	<style>
+
+		*{
+			margin: 0;
+			list-style: none;
+		}
+		
+		#menu{
+			padding-left: 20%;
+			width: 80%;
+			height: 50px;
+			background-color: #4AA7E0;
+		}
+
+		#menulist{
+			position: fix; /*position 定位 fix: 固定 absolute : 依照位置去做搭配*/
+			height: 100px;
+		}
+
+
+		#menulist , #menulist ul{
+			z-index: 9999;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#menulist li {
+			height: 50px;
+			float: left;
+			background-color: #4AA7E0;
+			line-height: 50px;
+		}
+
+		#menulist a{
+			font-size: 20px;
+			text-align: center;
+			height: 50px;
+			color: #ffffff;
+			display: block;
+			text-decoration: none;
+			width: 150px;
+		}
+
+		#menulist li ul{
+			position: absolute; /*位置是絕對位置*/
+			left: auto; /*對於絕對位置元素，會依內容需要的寬度來調整*/
+			width: 150px;
+		}
+
+		.active{
+			background-color: #45CBF7;
+		}
+
+	</style>
+
+	<script>
+		
+		$(document).ready(function(){
+
+			$('#menulist li ul').hide();
+			$('#menulist li').hover(
+
+				function(){
+					$(this).find("ul").show("fast");
+					$(this).find("a:first").addClass("active");
+				},function(){
+					$(this).find(".submenu").fadeOut("fast");
+					$(this).find("a").removeClass("active");
+				}
+
+			)
+
+		});
+
+
+	</script>
+	<script>
+
+		$(document).ready(function(){
+
+			var i = 0;
+			var clone = $(".mover .img li").first().clone(); //複製第一張圖片
+			$(".mover .img").append(clone); //將複製的第一張貼到最後面去
+
+			var size = $(".mover .img li").size(); //抓個數
+
+			/*自動撥放*/
+			/*setInterval 會不斷呼叫函數 2秒呼叫一次*/
+
+			var t = setInterval(function(){
+				i++;
+				move();
+			},2000);
+
+			function move(){
+
+				if (i == size){
+					$(".mover .img").css({left:0});
+					i=1;
+				}
+				if (i == -1){
+					$(".mover .img").css({left:-(size-1) * 500});
+					i = size -2;
+				}
+				$(".mover .img").stop().animate({left:-i * 500},500);
+			}
+
+			/*此區域被滑鼠移入時*/
+
+			$(".mover").hover(function(){
+				clearInterval(t); //清除計時器兩秒一次
+			},
+			function(){
+
+				t = setInterval(function(){
+					i++;
+					move();
+				},2000);
+
+			});
+
+			$(".mover .left").click(function(){
+				i++;
+				move();
+			})
+
+			$(".mover .right").click(function(){
+				i--;
+				move();
+			})
+
+
+
+		});
+		
+
+	</script>
+
+</head>
+<body>
+
+	<div id="banner"  style="height: 150px;width: 100%;background-color: #448585;">
+
+		<div id="icon"><img src="img/animalicon.png"></div>
+		<div id="searchArea">
+			<input type="text" id="search" placeholder="搜尋欄" />
+			<img src="img/searchButton.png">
+		</div>
+		
+	</div>
+
+
+	<div id="menu">
+
+		<ul id="menulist">
+
+			<li><a href="#">認識生物</a></li>
+
+			<li><a href="#">動物</a>
+				<ul class="submenu">
+					<li><a href="#">貓貓</a></li>
+					<li><a href="#">狗狗</a></li>
+					<li><a href="#">兔兔</a></li>
+				</ul>
+			</li>
+
+			<li><a href="#">植物</a>
+				<ul class="submenu">
+					<li><a href="#">單子葉</a></li>
+					<li><a href="#">雙子葉</a></li>
+					<li><a href="#">蕨類</a></li>
+				</ul>
+			</li>
+
+			<li><a href="#">細菌</a>
+				<ul class="submenu">
+					<li><a href="#">大腸桿菌</a></li>
+					<li><a href="#">葡萄球菌</a></li>
+					<li><a href="#">螺旋桿菌</a></li>
+				</ul>
+			</li>
+
+			<li><a href="#">蕈類</a>
+				<ul class="submenu">
+					<li><a href="#">牛肝菌</a></li>
+					<li><a href="#">靈芝</a></li>
+					<li><a href="#">香菇</a></li>
+				</ul>
+			</li>
+
+			<li><a href="#">病毒</a>
+				<ul class="submenu">
+					<li><a href="#">武漢病毒</a></li>
+					<li><a href="#">腸病毒</a></li>
+					<li><a href="#">菸草病毒</a></li>
+				</ul>
+			</li>
+
+			<li><a href="#">聯絡我們</a></li>
+		</ul>
+	</div>
+
+	<div id="content">
+
+		<div class="mover">
+			
+			<ul class="img">
+				<li><img src="img/cat.jpg"></li>
+				<li><img src="img/dog.jpg"></li>
+				<li><img src="img/ham.png"></li>
+				<li><img src="img/owl.jpg"></li>
+			</ul>
+
+			<div class="btn left">&lt;</div>   
+			<div class="btn right">&gt;</div>
+
+
+		</div>
+
+		<div id="contentRightpart">
+
+			<div class="rightPiece">
+				<h2>澳洲三兄弟-無尾熊</h2>
+				<a href="#"><img src="img/coala.jpg"></a>
+				
+			</div>
+			<div class="rightPiece">
+				<h2>澳洲三兄弟-袋鼠</h2>
+				<a href="#"><img src="img/kangaroo.jpg"></a>
+				
+			</div>
+			<div class="rightPiece">
+				<h2>澳洲三兄弟-袋熊</h2>
+				<a href="#"><img src="img/wombat.jpg"></a>
+				
+			</div>
+			
+		</div>
+
+	</div>
+
+	<div id="news">
+		<p class="title">動物新聞</p>
+		<div class="items">
+			<div id="weather">
+				<p>今日天氣:秋高氣爽|</p>
+				
+			</div>
+			<div class="buttons">
+				<h3>聯絡我們:</h3>
+				<a href="https://www.facebook.com/" target="_blank"><img src="img/icon-FB-color.svg"></a>
+				<a href="https://www.instagram.com/" target="_blank"><img src="img/icon-IG-color.svg"></a>
+				<a href="#" target="_blank"><img src="img/icon-LINE-color.svg"></a>
+				<a href="https://www.youtube.com/?gl=TW&hl=zh-tw" target="_blank"><img src="img/icon-YT-color.svg"></a>
+				<a href="https://twitter.com/home?lang=zh-Hant" target="_blank"><img src="img/icon-twitter-color.svg"></a>
+			</div>
+		</div>
+
+		<div id="newsContent">
+			<div class="left">
+				<div class="leftpiece">
+					<img src="img/accident.jpg">
+					<h1>英國發生羚羊撞死人意外</h1>
+					<p>平常溫馴的羚羊，千萬不要小看他們，牠們的角可是具有殺死人的能力。</p>
+				</div>
+
+
+				<div class="leftpiece">
+					<img src="img/anaconda.jpg">
+					<h1>3公尺巨蟒懸掛樹梢 嚇壞路邊民眾</h1>
+					<p>泰國某地廟宇旁的樹上突然出現一隻長超過3公尺的大蟒蛇，由於未曾見過，嚇壞了當地民眾。</p>
+					
+				</div>
+
+				
+			</div>
+
+			<div class="right">
+
+				<div class="rightPiece">
+					<p>幼獅餓壞討奶喝 任人撫摸像大貓 反差萌爆表卻被罵翻</p>
+				</div>
+				<div class="rightPiece">
+					<p>男子海上玩立槳 巧遇巨獸伴游 震撼影片曝</p>
+				</div>
+				<div class="rightPiece">
+					<p>和鱷魚互動慘遭狠咬 他半隻手沒了！驚悚X光照曝光</p>
+				</div>
+				<div class="rightPiece">
+					<p>一坨黑泥擋路中央 她下車驚見3萌獸 暖心結局曝光</p>
+				</div>
+				<div class="rightPiece">
+					<p>飼養非犬貓寵物 新北動保處召開飼養指南審查會</p>
+				</div>
+				<div class="rightPiece">
+					<p>北捷首例松鼠傷人案 寵物松鼠鑽出籠猛啃女乘客</p>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div id="program1">
+
+		<p class="title">精彩節目</p>
+		<div class="items">
+			<div class="programLogo">
+
+				<img src="img/pg1logo.png">
+
+			</div>
+			<div class="buttons">
+				<h3>聯絡我們:</h3>
+				<a href="https://www.facebook.com/" target="_blank"><img src="img/icon-FB-color.svg"></a>
+				<a href="https://www.instagram.com/" target="_blank"><img src="img/icon-IG-color.svg"></a>
+				<a href="#" target="_blank"><img src="img/icon-LINE-color.svg"></a>
+				<a href="https://www.youtube.com/?gl=TW&hl=zh-tw" target="_blank"><img src="img/icon-YT-color.svg"></a>
+				<a href="https://twitter.com/home?lang=zh-Hant" target="_blank"><img src="img/icon-twitter-color.svg"></a>
+			</div>
+		</div>
+
+		<div class="pg1content">
+
+			<div id="pg1left">
+
+				<div id="pg1lefttext">
+					<span>台灣的鳥類十分珍貴，請不要隨意捕捉到鳥店販售</span>
+				</div>
+				<img src="img/pg1left.jpg">
+				
+				
+			</div>
+
+			<div id="pg1right">
+
+				<div class="pg1rightpiece">
+					<img src="img/pg1right1.jpg">
+					<span>野生的青蛙生存空間正在被外來種侵略</span>
+				</div>
+
+				<div class="pg1rightpiece">
+					<img src="img/pg1right2.jpg">
+					<span>野生動物的陸殺問題需要被大眾所重視</span>
+				</div>
+
+				<div class="pg1rightpiece">
+					<img src="img/pg1right3.jpg">
+					<span>台灣梅花鹿在大坵島的復育成功代表什麼</span>
+				</div>
+				
+
+			</div>
+			
+		</div>
+
+
+	</div>
+
+	<div id="program2">
+
+		<div class="items">
+			<div class="programLogo">
+
+				<img src="img/pg2logo.svg">
+
+			</div>
+			<div class="buttons">
+				<h3>聯絡我們:</h3>
+				<a href="https://www.facebook.com/" target="_blank"><img src="img/icon-FB-color.svg"></a>
+				<a href="https://www.instagram.com/" target="_blank"><img src="img/icon-IG-color.svg"></a>
+				<a href="#" target="_blank"><img src="img/icon-LINE-color.svg"></a>
+				<a href="https://www.youtube.com/?gl=TW&hl=zh-tw" target="_blank"><img src="img/icon-YT-color.svg"></a>
+				<a href="https://twitter.com/home?lang=zh-Hant" target="_blank"><img src="img/icon-twitter-color.svg"></a>
+			</div>
+		</div>
+
+		<div class="pg2content">
+
+			<div id="pg2left">
+
+				<div id="pg2lefttext">
+					<span>這裡是專屬於你的毛小孩天地，想要找什麼類型的毛孩我們都有!</span>
+				</div>
+				<img src="img/pg2left.jpg">
+				
+				
+			</div>
+
+			<div id="pg2right">
+
+				<div class="pg2rightpiece">
+					<img src="img/pg2right1.jpg">
+					<span>可愛的巴哥犬呆呆的，真的醜得很可愛</span>
+				</div>
+
+				<div class="pg2rightpiece">
+					<img src="img/pg2right2.jpg">
+					<span>安靜又愛乾淨的兔子也是廣為人氣</span>
+				</div>
+
+				<div class="pg2rightpiece">
+					<img src="img/pg2right3.jpg">
+					<span>惹人憐愛又機掰的貓派也是不在少數</span>
+				</div>
+				
+
+			</div>
+			
+		</div>
+
+
+	</div>
+
+	<div id="program3">
+
+		<div class="items">
+			<div class="programLogo">
+
+				<img src="img/pg3logo.jpg">
+
+			</div>
+			<div class="buttons">
+				<h3>聯絡我們:</h3>
+				<a href="https://www.facebook.com/" target="_blank"><img src="img/icon-FB-color.svg"></a>
+				<a href="https://www.instagram.com/" target="_blank"><img src="img/icon-IG-color.svg"></a>
+				<a href="#" target="_blank"><img src="img/icon-LINE-color.svg"></a>
+				<a href="https://www.youtube.com/?gl=TW&hl=zh-tw" target="_blank"><img src="img/icon-YT-color.svg"></a>
+				<a href="https://twitter.com/home?lang=zh-Hant" target="_blank"><img src="img/icon-twitter-color.svg"></a>
+			</div>
+		</div>
+
+		<div class="pg3content">
+
+			<div id="pg3left">
+
+				<div id="pg3lefttext">
+					<span>植男植女們的天堂，綠意盎然的包圍著可以說是最療癒的時候!</span>
+				</div>
+				<img src="img/pg3left.jpg">
+				
+				
+			</div>
+
+			<div id="pg3right">
+
+				<div class="pg3rightpiece">
+					<img src="img/pg3right1.jpg">
+					<span>懶人專屬的多肉植物，擺在那邊就很舒服</span>
+				</div>
+
+				<div class="pg3rightpiece">
+					<img src="img/pg3right2.jpg">
+					<span>蘭花王國出產的蘭花可是世界級的</span>
+				</div>
+
+				<div class="pg3rightpiece">
+					<img src="img/pg3right3.jpg">
+					<span>可別小看這鹿角蕨都是株株昂貴</span>
+				</div>
+				
+
+			</div>
+			
+		</div>
+
+
+	</div>
+
+	<div id="footer">
+
+		<div class="items">
+
+			<div id="footer_left">
+
+				<div id="footerLogo">
+
+					<img src="img/logo_footer.png">
+
+				</div>
+				<div id="leftcontent">
+
+					<span>您的意見是我們前進的動力，歡迎來信或來電反映</span>
+					<br />
+					<span>意見反映：service@tvbs.com.tw</span>
+					<br />
+					<span>服務專線：02-2656-1599</span>
+
+				</div>
+
+			</div>
+
+			<div id="footer_right">
+
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+				<div class="footerrightcontent">擬好安安</div>
+
+			</div>
+
+			
+
+		</div>
+
+
+		
+
+	</div>
+
+
+
+
+
+
+</body>
+</html>
