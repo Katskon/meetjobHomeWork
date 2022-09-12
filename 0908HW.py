@@ -37,7 +37,7 @@ end = 0
 count = 0
 add = 0 
 
-while add != 15:
+while add != :
     count+=1
     add+=count
     
