@@ -37,7 +37,7 @@ end = 0
 count = 0
 add = 0 
 
-while add != :
+while add != num:
     count+=1
     add+=count
     
@@ -50,6 +50,7 @@ for i in range(1,count+1):
     
     
 
+    
     
 
     
